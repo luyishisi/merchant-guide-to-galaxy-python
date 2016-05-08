@@ -55,4 +55,4 @@ def getRomanNum(RomanStr):
         return NumDic['retNum']
     else:
         print 'String is not a valid Roman numerals'
-print getRomanNum('XCVIII')
+print getRomanNum('XCVI')
