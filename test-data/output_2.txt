@@ -1,0 +1,3 @@
+pish prok glob is 16
+pish tegj glob glob is 42
+glob prok Gold is 57800 Credits

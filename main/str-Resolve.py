@@ -18,7 +18,7 @@ def str_Resolve(input_line):
 
     #print 'word_dic:',word_dic
 
-    if input_line[-1] == 's':#以小写ｓ做为金币银币那些测试数据的识别符号
+    elif input_line[-1] == 's':#以小写ｓ做为金币银币那些测试数据的识别符号
         input_line_array = input_line.split(' ')#以空格截取
 
         temp_str = ''
@@ -31,7 +31,7 @@ def str_Resolve(input_line):
 
     #print 'coin_dic:',coin_dic
 
-    if input_line[-1] == '?':
+    elif input_line[-1] == '?':
         input_line_array = input_line.split(' ')
         #print "input_line_array:",input_line_array
 
@@ -56,7 +56,7 @@ def str_Resolve(input_line):
             print temp_str4+input_line_array[-2]+' is '+ str(coin_dic[input_line_array[-2]]*getRomanNum(temp_str2) )+ ' Credits'#输出数量＊单位价值
 
 
-for line in fileinput.input("../test-data/input.txt"):
+for line in fileinput.input("../test-data/input_2.txt"):
     str_line=line[:-1]
     #print str_line
     str_Resolve(str_line)
