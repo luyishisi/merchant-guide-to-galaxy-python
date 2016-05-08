@@ -5,7 +5,8 @@ def getRomanNum(RomanStr):
     '''输入罗马数字字符串，输出转换后的阿拉伯字符串'''
     #正则表达式进行匹配,判断输入是否合法
     if re.search('^M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$',RomanStr)!=None:
-        print re.search('^M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$',RomanStr)
+        #test
+        #print re.search('^M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$',RomanStr)
         NumDic = {"pattern":"","retNum":0}
         RomanPattern = {
             "0":('','','','M'),
@@ -15,7 +16,8 @@ def getRomanNum(RomanStr):
             }
         i = 3
         NumItems = sorted(RomanPattern.items())#对字典先排序返回元组
-        print NumItems 
+        #test
+        #print NumItems
         for RomanItem in NumItems:
             if RomanItem[0] != '0':
                 patstr = NumDic["pattern"].join(['',RomanItem[1][0]])
@@ -42,12 +44,14 @@ def getRomanNum(RomanStr):
                 if re.search(patstr,RomanStr) != None:
                     sum = k*(10**i)
                     tempstr = patstr
-            if tempstr <> '':
+            if tempstr <> '':#进行＜＞比较
                 NumDic["pattern"] = tempstr
             else:
                 NumDic["pattern"] = patstr
             NumDic['retNum'] += sum
             i -= 1
+            #ｔｅｓｔ，用于ｓｕｍ处理
+            #print "i=",i
         return NumDic['retNum']
     else:
         print 'String is not a valid Roman numerals'
