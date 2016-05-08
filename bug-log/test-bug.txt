@@ -1,0 +1,36 @@
+题目出现ｂｕｇ
+输入测试数据：
+glob is I
+prok is V
+pish is X
+tegj is L
+glob glob Silver is 34 Credits
+glob prok Gold is 57800 Credits
+pish pish Iron is 3910 Credits
+how much is pish tegj glob glob ?
+how many Credits is glob prok Silver ?
+how many Credits is glob prok Gold ?
+how many Credits is glob prok Iron ?
+
+从题目给出的ｏｕｔｐｕｔ中应该得出的测试结果是：
+pish tegj glob glob is 42
+glob prok Silver is 68 Credits
+glob prok Gold is 57800 Credits
+glob prok Iron is 782 Credits
+
+但是我代码得出的结果是：
+luyi@luyishisi:~/桌面/merchant-guide-to-galaxy-python/str-Resolve$ python str-Resolve.py
+pish tegj glob glob is 42
+glob prok Silver is 68 Credits
+glob prok Gold is 57800 Credits
+glob prok Iron is 780 Credits
+
+在最后一组测试数据中，出现７８０而不是题目中的７８２
+手算一遍．
+how many Credits is glob prok Iron ?
+iron的单位价值是
+pish pish 个 iron 价值　3910
+pish pish 是ｘｘ就是20.所以单个价值是3910/20=195
+glob prok 是IV 就是4，就是四个iron多少价值．答案应该是：4*195＝780
+
+所以题目应该是出错了
