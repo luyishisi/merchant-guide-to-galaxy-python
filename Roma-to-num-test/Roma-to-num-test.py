@@ -52,7 +52,8 @@ def getRomanNum(RomanStr):
             i -= 1
             #ｔｅｓｔ，用于ｓｕｍ处理
             #print "i=",i
+
         return NumDic['retNum']
     else:
         print 'String is not a valid Roman numerals'
-print getRomanNum('XCVI')
+#print getRomanNum('XCVI')
