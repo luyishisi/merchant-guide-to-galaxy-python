@@ -3,3 +3,6 @@
 I have no idea what you are talking about.
 正在考虑使用try进行处理.
 
+5.10日,增加try与except处理异常,可以正确处理test-data 中3的输入情况.
+
+
