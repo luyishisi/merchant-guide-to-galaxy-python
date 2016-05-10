@@ -1,5 +1,5 @@
 项目日志
-9.３0开工．
+5.8开工．
 理解题意，建立基础环境，分散工作模块．
 确立以三部分分别完成
 １：Roma_to_num_test
@@ -15,3 +15,10 @@ log　存储开发记录，
 Readme　整体说明文件
 main 主文件
 *-test 部分功能测试文件
+
+5.10改良
+查阅网络上关于此题目的资料,有使用java,以及c#写的源代码,并且在
+https://github.com/shadowisbrawler/merchant-guide-to-galaxy/blob/master/testresults.txt
+中有较多的测试数据.故增加测试数据.
+
+修复测试数据3中错误输入情况下的提示语句输出
