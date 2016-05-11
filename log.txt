@@ -30,3 +30,7 @@ https://github.com/shadowisbrawler/merchant-guide-to-galaxy/blob/master/testresu
 改写了类,存放在main_class_model 模式中.
 我知道这个类用的不是很好,所以把原来使用函数式的移动到main_func_model中.可以照常运行
 
+使用pylint检查并修改了main_class_model 中的代码,,其中
+Method could be a function (no-self-use)
+还有Invalid constant name "word_dic" (invalid-name)
+这类提示,无法解决.
