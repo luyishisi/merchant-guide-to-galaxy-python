@@ -5,10 +5,9 @@ http://www.urlteam.org/2016/05/merchants-guide-to-the-galaxy%E7%AC%94%E8%AF%95%E
 
 github地址:https://github.com/luyishisi/merchant-guide-to-galaxy-python
 
-测试  请运行main下的main.py文件
+测试  请运行main下的main.py文件 有类模式和函数式两种,均可运行
 
-      cd main
-
+      cd main_class_model  || cd main_func_model
       python main.py
 
 环境　python 2.7

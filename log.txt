@@ -22,3 +22,11 @@ https://github.com/shadowisbrawler/merchant-guide-to-galaxy/blob/master/testresu
 中有较多的测试数据.故增加测试数据.
 
 修复测试数据3中错误输入情况下的提示语句输出
+
+5.11 思考可以改良的部分.
+代码功能已经是基本实现了,那么就需要往健壮性以及可读性方面考虑,其次企业开发中均使用面向对象的开发思路
+,所以准备进行类的改写,以及使用pep8以及pylint进行代码风格和规范上的揪查.
+
+改写了类,存放在main_class_model 模式中.
+我知道这个类用的不是很好,所以把原来使用函数式的移动到main_func_model中.可以照常运行
+
