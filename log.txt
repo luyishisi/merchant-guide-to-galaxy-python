@@ -34,3 +34,19 @@ https://github.com/shadowisbrawler/merchant-guide-to-galaxy/blob/master/testresu
 Method could be a function (no-self-use)
 还有Invalid constant name "word_dic" (invalid-name)
 这类提示,无法解决.
+
+5.12最终修正
+根据pep8的代码风格规范,重写代码变量名部分.
+
+附录:命名规范
+
+类的命名使用CapWords的方式。
+全局变量使用CapWords的方式。
+变量命令使用CapWords的方式
+函数命名使用全部小写的方式,使用下划线。
+常量命名使用全部大写的方式，使用下划线。
+类的属性（方法和变量）命名使用全部小写的方式，可以使用下划线。
+类的方法第一个参数必须是self，而静态方法第一个参数必须是cls。
+
+多次的修正,也找过不少朋友求教规范化问题,,以现在的知识水准,是全力以赴的尽力优化.
+如仍然有些许问题,请不吝赐教..

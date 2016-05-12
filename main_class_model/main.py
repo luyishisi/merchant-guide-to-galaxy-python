@@ -8,7 +8,7 @@ import fileinput
 # Output : 测试结果
 class RomanNum(object):
 
-    def getRomanNum(self, RomanStr):
+    def get_roman_num(self, RomanStr):
         # Description : 使用正则的类似思想,对输入串判断romanpattern中规则出现的情况,
         #               例如以MXCVI为例,则在pattern的结果是:^M{1}C{0}XCX{0}VI{1}
         #               1000+90+6这里就可以按照千百十分位来分别判断处理
@@ -31,94 +31,94 @@ class RomanNum(object):
 
             for RomanItem in NumItems:
                 if RomanItem[0] != '0':#先统计千内的
-                    patstr = NumDic["pattern"].join(['', RomanItem[1][0]])
-                    if re.search(patstr, RomanStr) != None:
+                    PatStr = NumDic["pattern"].join(['', RomanItem[1][0]])
+                    if re.search(PatStr, RomanStr) != None:
                         #先判断Romanstr中是否存在parstr
                         NumDic["retNum"] += 9*RomanItem[1][4] # +=90
-                        NumDic["pattern"] = patstr
+                        NumDic["pattern"] = PatStr
                     else:
-                        patstr = NumDic["pattern"].join(['', RomanItem[1][1]])
-                        if re.search(patstr, RomanStr) != None:
+                        PatStr = NumDic["pattern"].join(['', RomanItem[1][1]])
+                        if re.search(PatStr, RomanStr) != None:
                             NumDic["retNum"] += 4*RomanItem[1][4]
-                            NumDic["pattern"] = patstr
+                            NumDic["pattern"] = PatStr
                         else:
-                            patstr = NumDic["pattern"].\
+                            PatStr = NumDic["pattern"].\
                             join(['', RomanItem[1][2]])
-                            if re.search(patstr, RomanStr) != None:
+                            if re.search(PatStr, RomanStr) != None:
                                 NumDic["retNum"] += 5*RomanItem[1][4]
-                                NumDic["pattern"] = patstr
+                                NumDic["pattern"] = PatStr
 
                 if NumDic["pattern"] == '':
                     NumDic["pattern"] = '^'#标志
-                tempstr = ''
-                sum = 0
+                TempStr = ''
+                Sum = 0
                 for k in range(0, 4):#处理连续出现几次
                     pstr = RomanItem[1][3].\
                     join(['', '{']).join(['', str(k)]).join(['', '}'])
-                    patstr = NumDic["pattern"].join(['', pstr])
-                    if re.search(patstr, RomanStr) != None:
-                        sum = k*(10**i)
-                        tempstr = patstr
-                if tempstr != '':
-                    NumDic["pattern"] = tempstr
+                    PatStr = NumDic["pattern"].join(['', pstr])
+                    if re.search(PatStr, RomanStr) != None:
+                        Sum = k*(10**i)
+                        TempStr = PatStr
+                if TempStr != '':
+                    NumDic["pattern"] = TempStr
                 else:
-                    NumDic["pattern"] = patstr
-                NumDic['retNum'] += sum
+                    NumDic["pattern"] = PatStr
+                NumDic['retNum'] += Sum
                 i -= 1
 
             return NumDic['retNum']
         else:
             print 'String is not a valid Roman numerals'
 
-    def str_Resolve(self, input_line):
+    def str_resolve(self, InputLine):
         # Description : 按照输入中的未字母,尾问号,以及much,many来做分类
         #
         # Input :测试数据
         #
         # Output : 分类机处理后的信息.
-        Romanarray = ['I', 'V', 'X', 'L', 'C', 'D', 'M']
-        if input_line[-1] in Romanarray:
-            input_line_array = input_line.split(' ')#以空格截取
-            word_dic[input_line_array[0]] = input_line_array[2]#取第一个和最后一个元素
+        RomanArray = ['I', 'V', 'X', 'L', 'C', 'D', 'M']
+        if InputLine[-1] in RomanArray:
+            InputLine_array = InputLine.split(' ')#以空格截取
+            WordDic[InputLine_array[0]] = InputLine_array[2]#取第一个和最后一个元素
             return
-        elif input_line[-1] == 's':#以小写ｓ做为金币银币那些测试数据的识别符号
-            input_line_array = input_line.split(' ')
-            temp_str = ''
-            for i in range(len(input_line_array)-4):
-                temp_str += word_dic[input_line_array[i]]
-            temp_num = self.getRomanNum(temp_str)
-            coin_dic[input_line_array[-4]] = \
-            int(input_line_array[-2])/int(temp_num)
+        elif InputLine[-1] == 's':#以小写ｓ做为金币银币那些测试数据的识别符号
+            InputLine_array = InputLine.split(' ')
+            TempStr = ''
+            for i in range(len(InputLine_array)-4):
+                TempStr += WordDic[InputLine_array[i]]
+            TempNum = self.get_roman_num(TempStr)
+            CoinDic[InputLine_array[-4]] = \
+            int(InputLine_array[-2])/int(TempNum)
             return
-        elif input_line[-1] == '?': #以?为标志,判断是否是第三四类输入
-            input_line_array = input_line.split(' ')
-            if input_line_array[1] == 'much':
-                temp_str1 = ''
-                temp_str3 = ''
-                for i in range(3, len(input_line_array)-1):#抽取第四个到最后一个数组元素
-                    temp_str3 += input_line_array[i]+' '
-                    temp_str1 += word_dic[input_line_array[i]]
-                return temp_str3+"is "+str(self.getRomanNum(temp_str1))
-            elif input_line_array[1] == 'many':
-                temp_str2 = ''
-                temp_str4 = ''
-                for i in range(4, len(input_line_array)-2):#取第５个到倒数第三个之间
-                    temp_str4 += input_line_array[i]+' '
-                    temp_str2 += word_dic[input_line_array[i]]
-                return temp_str4+input_line_array[-2]+' is '\
-                + str(coin_dic[input_line_array[-2]]*\
-                self.getRomanNum(temp_str2)) + ' Credits'
+        elif InputLine[-1] == '?': #以?为标志,判断是否是第三四类输入
+            InputLine_array = InputLine.split(' ')
+            if InputLine_array[1] == 'much':
+                TempStr1 = ''
+                TempStr3 = ''
+                for i in range(3, len(InputLine_array)-1):#抽取第四个到最后一个数组元素
+                    TempStr3 += InputLine_array[i]+' '
+                    TempStr1 += WordDic[InputLine_array[i]]
+                return TempStr3+"is "+str(self.get_roman_num(TempStr1))
+            elif InputLine_array[1] == 'many':
+                TempStr2 = ''
+                TempStr4 = ''
+                for i in range(4, len(InputLine_array)-2):#取第５个到倒数第三个之间
+                    TempStr4 += InputLine_array[i]+' '
+                    TempStr2 += WordDic[InputLine_array[i]]
+                return TempStr4+InputLine_array[-2]+' is '\
+                + str(CoinDic[InputLine_array[-2]]*\
+                self.get_roman_num(TempStr2)) + ' Credits'
 
 if __name__ == "__main__":
 
-    word_dic = {}#以字典来对应单词和罗马数字
-    coin_dic = {}#以字典来对应货币和价值
+    WordDic = {}#以字典来对应单词和罗马数字
+    CoinDic = {}#以字典来对应货币和价值
 
-    for line in fileinput.input("../test-data/input_1.txt"):
-        str_line = line[:-1]#去除行结尾的换行符号,未知为何会多出一个换行
+    for Line in fileinput.input("../test-data/input_3.txt"):
+        StrLine = Line[:-1]#去除行结尾的换行符号,未知为何会多出一个换行
         try:
             Roma = RomanNum()
-            str_return = Roma.str_Resolve(str_line)
+            str_return = Roma.str_resolve(StrLine)
             if str_return:
                 print str_return
         except:
